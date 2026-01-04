@@ -17,9 +17,9 @@ riftImg.src = "assets/fx/rift.png"; // optionnel
 // AUDIO — 1 seule instance (anti-freeze PC lent)
 // =====================================
 const TRACKS = [
-  { name: "Ancestral War Circle", src: "music/Ancestral War Circle.mp3" },
-  { name: "Forest Masks at Dusk", src: "music/Forest Masks at Dusk.mp3" },
-  { name: "Neon Mask Ritual", src: "music/Neon Mask Ritual.mp3" },
+  { name: "Ancestral War Circle", src: "music/ancestral-war-circle.mp3" },
+  { name: "Forest Masks at Dusk", src: "music/forest-masks-at-dusk.mp3" },
+  { name: "Neon Mask Ritual", src: "music/neon-mask-ritual.mp3" },
 ];
 
 let musicEnabled = false;
