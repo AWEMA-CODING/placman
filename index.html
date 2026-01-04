@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PLACMAN v0</title>
+  <style>
+    body { margin:0; background:#0a0010; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .wrap { position: relative; }
+    canvas { image-rendering: pixelated; border: 1px solid rgba(255,255,255,.08); cursor: crosshair; }
+
+    /* UI légère */
+    .ui {
+      position:absolute; left:10px; top:10px;
+      display:flex; gap:8px; align-items:center;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px 8px;
+      border-radius: 8px;
+      color: rgba(255,255,255,0.85);
+      font: 12px Arial, sans-serif;
+      user-select: none;
+    }
+    .ui button{
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 6px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    .ui input[type="range"]{ width: 120px; }
+    #trackName { max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  </style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#a84bff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <div class="wrap">
+    <canvas id="game" width="640" height="480"></canvas>
+
+    <!-- UI audio (léger) -->
+    <div class="ui">
+      <button id="btnMusic">▶︎ Musique</button>
+      <button id="btnNext">⏭︎ Next</button>
+
+      <span>Vol</span>
+      <input id="vol" type="range" min="0" max="100" step="1" value="35" />
+      <span id="volValue">35%</span>
+
+      <span id="trackName">—</span>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>
